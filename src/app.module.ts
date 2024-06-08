@@ -1,9 +1,12 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { MongooseModule } from '@nestjs/mongoose';
+import * as dotenv from 'dotenv';
+import { ProductsModule } from './Products/products.module';
+
+dotenv.config({ path: './.env' });
 
 @Module({
-  imports: [],
+  imports: [MongooseModule.forRoot(process.env.MONGO_URL), ProductsModule],
   controllers: [],
   providers: [],
 })
