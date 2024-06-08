@@ -13,12 +13,22 @@ export interface Product extends Document {
   _id: string;
   title: string;
   description: string;
-  price: string;
+  price: number;
   createdAt: Date;
   updatedAt: Date;
   __v: number;
 }
 
-export interface ProductResponseModel extends Product {
+export interface ProductResponseModel {
   message: string;
+  products: Product | Product[];
+}
+
+export interface ProductInsertResponseModel extends Product {
+  message: string;
+}
+
+export interface ProductBulkResponseModel {
+  message: string;
+  products: Product[];
 }
